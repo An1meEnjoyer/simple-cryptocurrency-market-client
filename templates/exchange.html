@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1 class="p-2">
+    Обменять
+</h1>
+
+<form method="post" class="row">
+    
+{% if pair and price %}
+    <div class="form-group col-md-6">
+        <label for="first_crypto">Первая криптовалюта</label>
+        <input type="text" class="form-control" name="first_crypto" value={{ pair['first_crypto'] }}>
+    </div>
+    <div class="form-group col-md-6">
+        <label for="second_crypto">Вторая криптовалюта</label>
+        <input type="text" class="form-control" name="second_crypto" value={{ pair['second_crypto'] }}>
+    </div>
+
+    <div class="col-12 my-2 row">
+        <div class="form-group col-md-10 mt-2">
+            <input type="text" class="form-control" name="price" value={{ price }} readonly>
+        </div>
+
+        <div class="form-group col-md-2 d-grid gap-1 py-2">
+            <button type="submit" class="btn btn-outline-primary" name = "check_price">Узнать цену</button>
+        </div>
+    </div>
+
+{% else %}
+
+    <div class="form-group col-md-6">
+        <label for="first_crypto">Первая криптовалюта</label>
+        <input type="text" class="form-control" name="first_crypto" placeholder="BTC">
+    </div>
+    <div class="form-group col-md-6">
+        <label for="second_crypto">Вторая криптовалюта</label>
+        <input type="text" class="form-control" name="second_crypto" placeholder="USDT">
+    </div>
+
+    <div class="col-12 my-2 row">
+        <div class="form-group col-md-10 mt-2">
+            <input type="text" class="form-control" name="price" readonly>
+        </div>
+
+        <div class="form-group col-md-2 d-grid gap-1 py-2">
+            <button type="submit" class="btn btn-outline-primary" name = "check_price">Узнать цену</button>
+        </div>
+    </div>
+
+{% endif %}
+
+    <div class="form-group col-12">
+        <label for="first_crypto_value">Колличество</label>
+        <input type="number" step=any class="form-control" name="first_crypto_value" placeholder="100">
+    </div>
+
+    <div class="form-group col-md-6 d-grid gap-1 py-2">
+        <button type="submit" class="btn btn-outline-success" name="buy">Купить</button>
+    </div>
+    <div class="form-group col-md-6 d-grid gap-1 py-2">
+        <button type="submit" class="btn btn-outline-danger" name="sell">Продать</button>
+    </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row p-2 my-2">
+
+    <h1 class="col">Баланс: {{ balance_sum }}$</h1>
+    <form method="post" class="col-md-2 d-grid gap-1">
+        <button type="submit" name="reload_bal" class="btn btn-outline-danger">Обновить баланс</button>
+    </form>
+</div>
+
+<ul class="list-group bg-light">
+    {% for key, value in balance.items() %}
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">{{ key }}</div>
+                <div class="col text-end">{{ '%.10f' % value }}</div>
+            </div>
+        </li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
