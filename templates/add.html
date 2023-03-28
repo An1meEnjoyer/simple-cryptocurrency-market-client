@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Add {% endblock %}
+
+{% block content %}
+
+<h1 class="p-2">
+    Добавить криптовалюту
+</h1>
+
+
+<form class="row" method="post">
+    <div class="form-group col-md-6">
+        <label for="name">Название</label>
+        <input type="text" name="name" placeholder="Bitcoin" class="form-control" >
+    </div>
+    <div class="form-group col-md-6">
+        <label for="short_name">Короткая версия</label>
+        <input type="text" name="short_name" placeholder="BTC" class="form-control">
+    </div>
+
+    <div class="form-group col-12 d-grid gap-1 py-2">
+        <button type="submit" name="add" class="btn btn-outline-dark">Добавить</button>
+    </div>
+</form>
+
+
+{% endblock %}
